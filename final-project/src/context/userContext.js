@@ -1,12 +1,15 @@
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { instance } from "../app/instance";
+import { getUser } from "../app/util";
 const userContext = createContext();
 
 export const useUserContext = () => useContext(userContext);
 
 export const UserContextProvider = ({ children }) => {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState(() => {
+    return getUser();
+  });
 
   const [loading, setLoading] = useState(null);
 
@@ -22,7 +25,7 @@ export const UserContextProvider = ({ children }) => {
       localStorage.setItem("refresh_token", data.refreshToken);
       setUserData(data.user);
       navigate(`/profile/${data.user.firstName}`, {
-        state: { id: data.used._id },
+        state: { id: data.user._id },
       });
     } catch (error) {
       setError(error.message);
@@ -39,7 +42,7 @@ export const UserContextProvider = ({ children }) => {
       localStorage.setItem("refresh_token", data.refreshToken);
       setUserData(data.user);
       navigate(`/profile/${data.user.firstName}`, {
-        state: { id: data.used._id },
+        state: { id: data.user._id },
       });
     } catch (error) {
       setError(error.message);
@@ -48,8 +51,15 @@ export const UserContextProvider = ({ children }) => {
     }
   };
 
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("refresh_token");
+    setUserData(null);
+    navigate("/");
+  };
+
   return (
-    <userContext.Provider value={{ register, userData, login }}>
+    <userContext.Provider value={{ register, userData, login, logout }}>
       {children}
     </userContext.Provider>
   );

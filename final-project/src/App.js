@@ -13,27 +13,35 @@ import Profile from "./pages/Profile";
 import { UserContextProvider } from "./context/userContext";
 import MainLayout from "./components/layout";
 import LoginPage from "./pages/LoginPage";
+import ProductFormPage from "./pages/ProductFormPage";
+import ProtectedRoute from "./app/ProtectedRoute";
+import { isUserAdmin } from "./app/util";
+import { ProductContextProvider } from "./context/productContext";
 
 function App() {
+  const isAdmin = isUserAdmin();
   return (
     <div className="App">
       <Router>
         <UserContextProvider>
-          <MainLayout>
-            <nav>
-              <Link to="/">Home</Link>
-              <br />
-              <Link to="./login">Login</Link>
-              <br />
-              <Link to="/register">Register</Link>
-            </nav>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="/profile:name" element={<Profile />} />
-            </Routes>
-          </MainLayout>
+          <ProductContextProvider>
+            <MainLayout>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/profile/:name" element={<Profile />} />
+                <Route
+                  path="/products/new"
+                  element={
+                    <ProtectedRoute hasAccess={isAdmin}>
+                      <ProductFormPage />
+                    </ProtectedRoute>
+                  }
+                />
+              </Routes>
+            </MainLayout>
+          </ProductContextProvider>
         </UserContextProvider>
       </Router>
     </div>

@@ -36,6 +36,8 @@ const Search = () => {
           backgroundColor: "#f6f6f6",
           textDecoration: "none",
           height: "25px",
+          border: "1px solid grey",
+          padding: "2px 8px",
         }}
       />
       <Button onClick={onClick} style={{ color: "black", fontSize: "bold" }}>

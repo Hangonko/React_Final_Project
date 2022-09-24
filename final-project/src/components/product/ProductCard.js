@@ -15,7 +15,11 @@ import { useCartContext } from "../../context/cartContext";
 const ProductCard = ({ product }) => {
   const [prodRating, setProdRating] = useState(product.averageRating);
   const { userData } = useUserContext();
-  const { addToCart } = useCartContext();
+  const { addToCart, removeCartItem, cart } = useCartContext();
+
+  const isProductInCart = cart?.find(
+    (cartItem) => cartItem.product?._id === product._id
+  );
 
   const onRatingChange = async (e) => {
     setProdRating(+e.target.value);
@@ -41,13 +45,21 @@ const ProductCard = ({ product }) => {
       </CardContent>
       <CardActions>
         <Rating value={prodRating} onChange={onRatingChange} precision={0.5} />
-        <Button
-          onClick={() => addToCart(product)}
-          variant="contained"
-          style={{ width: "80px", fontSize: "10px" }}
-        >
-          Add to cart
-        </Button>
+        {isProductInCart ? (
+          <>
+            <Button onClick={() => removeCartItem(product._id)}>-</Button>
+            {isProductInCart.quantity}
+            <Button
+              onClick={(e) => {
+                addToCart(product);
+              }}
+            >
+              +
+            </Button>
+          </>
+        ) : (
+          <Button onClick={() => addToCart(product)}>Add to cart</Button>
+        )}
       </CardActions>
     </Card>
   );

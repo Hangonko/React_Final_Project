@@ -20,6 +20,7 @@ import { ProductContextProvider } from "./context/productContext";
 import CategoryProducts from "./pages/CategoryProducts";
 import SingleProductPage from "./pages/SingleProductPage";
 import { CartContextProvider } from "./context/cartContext";
+import CartPage from "./pages/CartPage";
 
 function App() {
   const isAdmin = isUserAdmin();
@@ -51,6 +52,7 @@ function App() {
                       </ProtectedRoute>
                     }
                   />
+                  <Route path="/cart" element={<CartPage />} />
                 </Routes>
               </MainLayout>
             </CartContextProvider>

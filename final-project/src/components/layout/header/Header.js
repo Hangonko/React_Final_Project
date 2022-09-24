@@ -17,6 +17,8 @@ const Header = () => {
       <nav>
         <Link to="/">Home</Link>
         <br />
+        <Link to="/cart">Cart</Link>
+        <br />
         {!userData ? (
           <>
             <Link to="./login">Log in</Link>

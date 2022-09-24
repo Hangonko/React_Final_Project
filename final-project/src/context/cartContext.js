@@ -1,4 +1,6 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
+import { instance } from "../app/instance";
+import { getUser } from "../app/util";
 
 const cartContext = createContext();
 
@@ -58,9 +60,30 @@ export const CartContextProvider = ({ children }) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
   };
 
+  useEffect(() => {
+    const user = getUser();
+    if (user) {
+      const getUserCart = async () => {
+        const { data } = await instance.get(`/users/${user._id}/cart`);
+        dispatch({ type: "POPULATE_CART", payload: data.cart });
+      };
+      getUserCart();
+    } else {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      dispatch({ type: "POPULATE_CART", payload: cart });
+    }
+  }, []);
+
+  const saveCart = async (userId) => {
+    try {
+      await instance.put(`/users/${userId}/cart`, { products: cartState.cart });
+      localStorage.removeItem("cart");
+    } catch (error) {}
+  };
+
   return (
     <cartContext.Provider
-      value={{ addToCart, removeCartItem, cart: cartState.cart }}
+      value={{ addToCart, removeCartItem, cart: cartState.cart, saveCart }}
     >
       {children}
     </cartContext.Provider>

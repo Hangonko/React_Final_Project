@@ -44,7 +44,12 @@ const ProductCard = ({ product }) => {
         <Typography variant="h6">${product.price}</Typography>
       </CardContent>
       <CardActions>
-        <Rating value={prodRating} onChange={onRatingChange} precision={0.5} />
+        <Rating
+          style={{ color: "#8059BC" }}
+          value={prodRating}
+          onChange={onRatingChange}
+          precision={0.5}
+        />
         {isProductInCart ? (
           <>
             <Button onClick={() => removeCartItem(product._id)}>-</Button>

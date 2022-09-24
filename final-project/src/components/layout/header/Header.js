@@ -2,6 +2,7 @@ import React from "react";
 import { useUserContext } from "../../../context/userContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import Search from "./Search";
 
 const Header = () => {
   const { userData, logout } = useUserContext();
@@ -19,6 +20,7 @@ const Header = () => {
         <br />
         <Link to="/cart">Cart</Link>
         <br />
+        <Search />
         {!userData ? (
           <>
             <Link to="./login">Log in</Link>

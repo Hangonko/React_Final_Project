@@ -9,6 +9,7 @@ const PaginationComponent = ({ page, setPage, totalPages }) => {
       onChange={(e, value) => {
         setPage({ page: +value });
       }}
+      className="Pagination"
     />
   );
 };

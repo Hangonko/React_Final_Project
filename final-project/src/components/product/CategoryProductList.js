@@ -23,6 +23,7 @@ const CategoryProductList = () => {
           setSort(e.target.value);
           setPage(1);
         }}
+        style={{ width: "150px", height: "50px", marginTop: "25px" }}
       >
         <MenuItem value={"price,desc"}>ფასი კლებადობით</MenuItem>
         <MenuItem value={"price,asc"}>ფასი ზრდადობით</MenuItem>

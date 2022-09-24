@@ -59,7 +59,7 @@ const ProductForm = () => {
     defaultFormValues: genAddProdFormValues(),
   });
 
-  const { saveProduct } = useProductContext();
+  const { saveProduct, selectedProduct } = useProductContext();
 
   const [image, setImage] = useState("");
 
@@ -67,6 +67,10 @@ const ProductForm = () => {
   useEffect(() => {
     setIsButtonDisabled(checkButtonDisable(productFormValues));
   }, [productFormValues]);
+
+  useEffect(() => {
+    setProductFormValues(genAddProdFormValues(selectedProduct));
+  }, [selectedProduct]);
 
   const saveProductHandler = () => {
     const name = productFormValues.name.value;

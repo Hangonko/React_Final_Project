@@ -9,13 +9,19 @@ import {
 } from "@mui/material";
 import { instance } from "../../app/instance";
 import { useUserContext } from "../../context/userContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
+import { isUserAdmin } from "../../app/util";
+import { useProductContext } from "../../context/productContext";
 
 const ProductCard = ({ product }) => {
   const [prodRating, setProdRating] = useState(product.averageRating);
   const { userData } = useUserContext();
   const { addToCart, removeCartItem, cart } = useCartContext();
+  const { setSelectedProduct, setIsProductUpdating } = useProductContext();
+  const isAdmin = isUserAdmin();
+
+  const navigate = useNavigate();
 
   const isProductInCart = cart?.find(
     (cartItem) => cartItem.product?._id === product._id
@@ -66,6 +72,17 @@ const ProductCard = ({ product }) => {
           </>
         ) : (
           <Button onClick={() => addToCart(product)}>Add to cart</Button>
+        )}
+        {isAdmin && (
+          <Button
+            onClick={() => {
+              setIsProductUpdating(true);
+              setSelectedProduct(product);
+              navigate(`/products/${product._id}/edit`);
+            }}
+          >
+            Edit
+          </Button>
         )}
       </CardActions>
     </Card>

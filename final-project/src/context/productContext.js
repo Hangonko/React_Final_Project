@@ -28,7 +28,15 @@ export const ProductContextProvider = ({ children }) => {
     }
   };
   return (
-    <ProductContext.Provider value={{ mainProductData, saveProduct }}>
+    <ProductContext.Provider
+      value={{
+        mainProductData,
+        saveProduct,
+        setIsProductUpdating,
+        setSelectedProduct,
+        selectedProduct,
+      }}
+    >
       {children}
     </ProductContext.Provider>
   );

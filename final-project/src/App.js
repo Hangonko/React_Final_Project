@@ -52,6 +52,14 @@ function App() {
                       </ProtectedRoute>
                     }
                   />
+                  <Route
+                    path="/products/:id/edit"
+                    element={
+                      <ProtectedRoute hasAccess={isAdmin}>
+                        <ProductFormPage />
+                      </ProtectedRoute>
+                    }
+                  />
                   <Route path="/cart" element={<CartPage />} />
                 </Routes>
               </MainLayout>

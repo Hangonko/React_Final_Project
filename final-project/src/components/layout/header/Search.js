@@ -27,8 +27,14 @@ const Search = () => {
   console.log(searchResult);
   return (
     <div>
-      <input value={value} onChange={(e) => setValue(e.target.value)} />
-      <Button onClick={onClick}>Search</Button>
+      <input
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="Input"
+      />
+      <Button onClick={onClick} style={{ color: "#7926ff", fontSize: "bold" }}>
+        Search
+      </Button>
     </div>
   );
 };

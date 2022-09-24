@@ -14,7 +14,7 @@ body {
 }
 
 .Cart {
-  background-color: rgb(121, 38, 255);
+  background-color: #7926ff;
   width: 500px;
   position: absolute;
   right: 50%;
@@ -31,16 +31,14 @@ body {
 }
 
 .header {
-  background: rgb(121, 38, 255);
-  background: linear-gradient(
-    90deg,
-    rgba(121, 38, 255, 1) 0%,
-    rgba(121, 38, 200, 1) 100%
-  );
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 80px;
+  height: 65px;
+  background-color: white;
+  box-shadow: 3px 15px 44px -20px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 3px 15px 44px -20px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 3px 15px 44px -20px rgba(0, 0, 0, 0.25);
 }
 
 .Nav {
@@ -59,4 +57,11 @@ body {
   background-color: white;
   padding: 5px 15px 7px 15px;
   border-radius: 5px;
+}
+
+.Input {
+  height: 20px;
+  border-radius: 10px;
+  color: "#7926ff";
+  border: "none";
 }

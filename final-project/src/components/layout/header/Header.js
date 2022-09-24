@@ -17,24 +17,48 @@ const Header = () => {
       <Search />
       <nav className="Nav">
         <Link to="/" className="NavItem">
-          Home
+          HOME
         </Link>
         <Link to="/cart" className="NavItem">
-          Cart
+          CART
         </Link>
         {!userData ? (
           <>
             <Link to="./login" className="NavItem">
-              Log in
+              LOG IN
             </Link>
             <Link to="/register" className="NavItem">
-              Register
+              REGISTER
             </Link>
           </>
         ) : (
           <>
-            <Button onClick={navigateToProfile}>Profile</Button>
-            <Button onClick={logout}>Log Out</Button>
+            <Button
+              onClick={navigateToProfile}
+              style={{
+                marginRight: "10px",
+                textDecoration: "none",
+                color: "#7926ff",
+                fontWeight: "bold",
+                fontSize: "19px",
+                marginTop: "2px",
+              }}
+            >
+              Profile
+            </Button>
+            <Button
+              onClick={logout}
+              style={{
+                marginRight: "10px",
+                textDecoration: "none",
+                color: "#7926ff",
+                fontWeight: "bold",
+                fontSize: "19px",
+                marginTop: "2px",
+              }}
+            >
+              Log Out
+            </Button>
           </>
         )}
       </nav>

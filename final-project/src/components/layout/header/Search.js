@@ -31,6 +31,12 @@ const Search = () => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         className="Input"
+        placeholder="Search"
+        style={{
+          backgroundColor: "#f6f6f6",
+          textDecoration: "none",
+          height: "25px",
+        }}
       />
       <Button onClick={onClick} style={{ color: "black", fontSize: "bold" }}>
         Search

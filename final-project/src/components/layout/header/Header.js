@@ -39,7 +39,7 @@ const Header = () => {
                 marginRight: "10px",
                 textDecoration: "none",
                 color: "black",
-                fontSize: "19px",
+                fontSize: "15px",
                 marginTop: "2px",
                 borderRadius: "0px",
               }}
@@ -53,7 +53,7 @@ const Header = () => {
                 marginRight: "10px",
                 textDecoration: "none",
                 color: "white",
-                fontSize: "19px",
+                fontSize: "15px",
                 marginTop: "2px",
                 borderRadius: "0px",
                 backgroundColor: "#7926f0",

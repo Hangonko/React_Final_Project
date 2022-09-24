@@ -51,7 +51,7 @@ const ProductCard = ({ product }) => {
         </Link>
         <Typography variant="h6">${product.price}</Typography>
       </CardContent>
-      <CardActions>
+      <CardActions style={{ display: "flex", justifyContent: "space-between" }}>
         <Rating
           style={{ color: "#8059BC" }}
           value={prodRating}
@@ -59,7 +59,7 @@ const ProductCard = ({ product }) => {
           precision={0.5}
         />
         {isProductInCart ? (
-          <>
+          <div style={{ display: "flex", alignItems: "center" }}>
             <Button onClick={() => removeCartItem(product._id)}>-</Button>
             {isProductInCart.quantity}
             <Button
@@ -69,7 +69,7 @@ const ProductCard = ({ product }) => {
             >
               +
             </Button>
-          </>
+          </div>
         ) : (
           <Button onClick={() => addToCart(product)}>Add to cart</Button>
         )}

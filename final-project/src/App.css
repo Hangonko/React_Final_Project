@@ -72,8 +72,7 @@ body {
 }
 
 .Grid {
-  background-color: red;
-  width: 700px;
+  width: 650px;
   margin: 50px auto;
 }
 
@@ -113,4 +112,24 @@ body {
     rgba(90, 0, 200, 1) 100%,
     rgba(121, 38, 240, 1) 100%
   );
+}
+
+.cardContent {
+  /* background: rgb(121, 38, 240); */
+  border: 2px solid rgb(45, 7, 100);
+  border-radius: 0 55px 0 0;
+  transition: 0.5s;
+}
+
+.cardContent:hover {
+  background-color: #e4d5fd;
+}
+
+.cardContentLinks {
+  color: "black";
+  text-decoration: none;
+}
+
+.cardContentLinks:hover {
+  color: "white";
 }

@@ -34,8 +34,10 @@ const ProductCard = ({ product }) => {
   };
   return (
     <Card className="Grid">
-      <CardContent>
+      <CardContent className="cardContent">
         <Link
+          style={{ color: "black" }}
+          className="cardContentLinks"
           to={`/products/categories/${product.category}/${product.name}`}
           state={{ id: product._id, category: product.category }}
         >

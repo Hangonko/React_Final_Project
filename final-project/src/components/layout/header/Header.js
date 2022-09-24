@@ -39,7 +39,6 @@ const Header = () => {
                 marginRight: "10px",
                 textDecoration: "none",
                 color: "#7926ff",
-                fontWeight: "bold",
                 fontSize: "19px",
                 marginTop: "2px",
               }}
@@ -52,7 +51,6 @@ const Header = () => {
                 marginRight: "10px",
                 textDecoration: "none",
                 color: "#7926ff",
-                fontWeight: "bold",
                 fontSize: "19px",
                 marginTop: "2px",
               }}

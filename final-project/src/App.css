@@ -27,7 +27,7 @@ body {
   box-shadow: 19px 13px 52px 2px rgba(0, 0, 0, 0.34);
   -webkit-box-shadow: 19px 13px 52px 2px rgba(0, 0, 0, 0.34);
   -moz-box-shadow: 19px 13px 52px 2px rgba(0, 0, 0, 0.34);
-  margin-top: 50px;
+  margin-top: 200px;
 }
 
 .header {
@@ -39,6 +39,9 @@ body {
   box-shadow: 3px 15px 44px -20px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 3px 15px 44px -20px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 3px 15px 44px -20px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 .Nav {
@@ -52,7 +55,6 @@ body {
   margin-right: 10px;
   text-decoration: none;
   color: #7926ff;
-  font-weight: bold;
   font-size: 20px;
   background-color: white;
   padding: 5px 15px 7px 15px;
@@ -64,4 +66,24 @@ body {
   border-radius: 10px;
   color: "#7926ff";
   border: "none";
+}
+
+.Grid {
+  background-color: red;
+  width: 700px;
+  margin: 50px auto;
+}
+
+.categoryLinks {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #7926ff;
+  padding: 10px;
+  transition: 0.5s;
+}
+
+.categoryLinks:hover {
+  background-color: #4d17a3;
 }

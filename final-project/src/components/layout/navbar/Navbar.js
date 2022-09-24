@@ -5,7 +5,11 @@ import { useProductContext } from "../../../context/productContext";
 const Navbar = () => {
   const { mainProductData } = useProductContext();
   return (
-    <div>
+    <div
+      style={{
+        paddingTop: "65px",
+      }}
+    >
       {mainProductData.categories?.length > 0 &&
         mainProductData.categories.map((category) => {
           return (
@@ -13,10 +17,10 @@ const Navbar = () => {
               key={category._id}
               to={`/products/categories/${category.name}?page=1`}
               style={{
-                color: "red",
                 display: "flex",
                 justifyContent: "center",
               }}
+              className="categoryLinks"
             >
               {category.name}
             </Link>

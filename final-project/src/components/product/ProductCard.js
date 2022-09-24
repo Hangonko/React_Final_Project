@@ -33,7 +33,7 @@ const ProductCard = ({ product }) => {
     } catch {}
   };
   return (
-    <Card>
+    <Card className="Grid">
       <CardContent>
         <Link
           to={`/products/categories/${product.category}/${product.name}`}

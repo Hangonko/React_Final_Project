@@ -8,7 +8,7 @@ const SingleProductComponent = () => {
   const { data } = useAxios(`/products/category/${category}/${id}`);
   console.log("Location", location);
   return (
-    <div>
+    <div style={{ marginTop: "350px" }}>
       <h1>{data.product?.name}</h1>
       <h2>{data.product?.description}</h2>
     </div>

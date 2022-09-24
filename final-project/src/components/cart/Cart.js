@@ -27,7 +27,7 @@ const Cart = () => {
           variant="contained"
           style={{
             borderRadius: "0 0 35px 35px",
-            backgroundColor: "rgb(121, 10, 255)",
+            backgroundColor: "rgb(110, 2, 240)",
           }}
         >
           Save cart

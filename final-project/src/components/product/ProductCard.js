@@ -5,13 +5,17 @@ import {
   Typography,
   CardActions,
   Rating,
+  Button,
 } from "@mui/material";
 import { instance } from "../../app/instance";
 import { useUserContext } from "../../context/userContext";
+import { Link } from "react-router-dom";
+import { useCartContext } from "../../context/cartContext";
 
 const ProductCard = ({ product }) => {
   const [prodRating, setProdRating] = useState(product.averageRating);
   const { userData } = useUserContext();
+  const { addToCart } = useCartContext();
 
   const onRatingChange = async (e) => {
     setProdRating(+e.target.value);
@@ -27,11 +31,23 @@ const ProductCard = ({ product }) => {
   return (
     <Card>
       <CardContent>
-        <Typography variant="h5">{product.name}</Typography>
+        <Link
+          to={`/products/categories/${product.category}/${product.name}`}
+          state={{ id: product._id, category: product.category }}
+        >
+          <Typography variant="h5">{product.name}</Typography>
+        </Link>
         <Typography variant="h6">${product.price}</Typography>
       </CardContent>
       <CardActions>
         <Rating value={prodRating} onChange={onRatingChange} precision={0.5} />
+        <Button
+          onClick={() => addToCart(product)}
+          variant="contained"
+          style={{ width: "80px", fontSize: "10px" }}
+        >
+          Add to cart
+        </Button>
       </CardActions>
     </Card>
   );

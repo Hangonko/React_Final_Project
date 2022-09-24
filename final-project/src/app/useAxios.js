@@ -6,6 +6,7 @@ const useAxios = (url) => {
   const [data, setData] = useState({});
   useEffect(() => {
     const getData = async () => {
+      console.log("shemovida line 9");
       const { data } = await instance.get(url);
       setData(data);
       console.log("Data");

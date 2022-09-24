@@ -38,10 +38,12 @@ const Header = () => {
               style={{
                 marginRight: "10px",
                 textDecoration: "none",
-                color: "#7926ff",
+                color: "black",
                 fontSize: "19px",
                 marginTop: "2px",
+                borderRadius: "0px",
               }}
+              className="NavItem"
             >
               Profile
             </Button>
@@ -50,10 +52,15 @@ const Header = () => {
               style={{
                 marginRight: "10px",
                 textDecoration: "none",
-                color: "#7926ff",
+                color: "white",
                 fontSize: "19px",
                 marginTop: "2px",
+                borderRadius: "0px",
+                backgroundColor: "#7926f0",
+                borderRadius: "10px",
+                padding: "5px 15px",
               }}
+              className="LogoutHover"
             >
               Log Out
             </Button>

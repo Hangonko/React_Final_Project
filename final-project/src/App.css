@@ -54,11 +54,14 @@ body {
 .NavItem {
   margin-right: 10px;
   text-decoration: none;
-  color: #7926ff;
+  color: black;
   font-size: 20px;
   background-color: white;
   padding: 5px 15px 7px 15px;
-  border-radius: 5px;
+}
+
+.NavItem:hover {
+  border-bottom: 3px solid #4d17a3;
 }
 
 .Input {
@@ -79,11 +82,35 @@ body {
   font-size: 20px;
   font-weight: bold;
   color: white;
-  background-color: #7926ff;
+  background: rgb(121, 38, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(121, 38, 255, 1) 0%,
+    rgba(133, 37, 168, 1) 100%
+  );
   padding: 10px;
   transition: 0.5s;
 }
 
 .categoryLinks:hover {
-  background-color: #4d17a3;
+  background: rgb(121, 38, 240);
+  background: linear-gradient(
+    90deg,
+    rgba(121, 38, 240, 1) 0%,
+    rgba(133, 37, 135, 1) 100%
+  );
+}
+
+.LogoutHover {
+  color: "white";
+  transition: 0.5s;
+}
+
+.LogoutHover:hover {
+  background: rgb(121, 38, 240);
+  background: linear-gradient(
+    0deg,
+    rgba(90, 0, 200, 1) 100%,
+    rgba(121, 38, 240, 1) 100%
+  );
 }

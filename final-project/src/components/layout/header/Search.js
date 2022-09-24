@@ -32,7 +32,7 @@ const Search = () => {
         onChange={(e) => setValue(e.target.value)}
         className="Input"
       />
-      <Button onClick={onClick} style={{ color: "#7926ff", fontSize: "bold" }}>
+      <Button onClick={onClick} style={{ color: "black", fontSize: "bold" }}>
         Search
       </Button>
     </div>

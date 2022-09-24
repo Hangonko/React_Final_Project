@@ -13,19 +13,23 @@ const Header = () => {
     });
   };
   return (
-    <div>
-      Hello
-      <nav>
-        <Link to="/">Home</Link>
-        <br />
-        <Link to="/cart">Cart</Link>
-        <br />
-        <Search />
+    <div className="header">
+      <Search />
+      <nav className="Nav">
+        <Link to="/" className="NavItem">
+          Home
+        </Link>
+        <Link to="/cart" className="NavItem">
+          Cart
+        </Link>
         {!userData ? (
           <>
-            <Link to="./login">Log in</Link>
-            <br />
-            <Link to="/register">Register</Link>
+            <Link to="./login" className="NavItem">
+              Log in
+            </Link>
+            <Link to="/register" className="NavItem">
+              Register
+            </Link>
           </>
         ) : (
           <>

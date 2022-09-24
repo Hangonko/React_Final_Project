@@ -7,7 +7,7 @@ const Cart = () => {
   const { cart, saveCart } = useCartContext();
   const user = getUser();
   return (
-    <div>
+    <div className="Cart">
       {cart?.length > 0
         ? cart.map((cartItem) => {
             return (
@@ -24,6 +24,11 @@ const Cart = () => {
             saveCart(user._id);
           }}
           disabled={!cart.length}
+          variant="contained"
+          style={{
+            borderRadius: "0 0 35px 35px",
+            backgroundColor: "rgb(121, 10, 255)",
+          }}
         >
           Save cart
         </Button>
